@@ -68,6 +68,7 @@ public class ZipCodeService {
 				zipCodeData.setKana2(result.get("kana2").asText());
 				zipCodeData.setKana3(result.get("kana3").asText());
 				
+				System.out.print(node.get("results"));
 				//可変長配列の末尾に追加
 				zipCodeEntity.getResults().add(zipCodeData);
 			}

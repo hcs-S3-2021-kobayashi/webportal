@@ -31,8 +31,12 @@ public class ZipCodeController {
 				
 				ZipCodeEntity zipCodeEntity = zipCodeService.getZip(zipcode);
 				model.addAttribute("zipCodeEntity", zipCodeEntity);
+				if(zipcode.length() != 7) {
+					return "index";
+				}else {
+					return "zipcode/zipcode";
+				}
 		
-		return "zipcode/zipcode";
 	}
 
 }
