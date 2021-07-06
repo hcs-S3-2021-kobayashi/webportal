@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
+
 <meta charset="UTF-8">
 <title>WebPortal Main</title>
 
@@ -17,7 +18,6 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 <!-- アイコン設定 -->
-<link rel="icon" href="/img/favicon.ico">
 <link rel="icon" th:href="@{/img/favicon.ico}" sizes="192x192"
 	href="../static/img/favicon.ico">
 <link rel="shortcut icon" th:href="@{/img/favicon.ico}">
@@ -34,21 +34,13 @@
 	href="../static/css/ress.css">
 <link rel="stylesheet" th:href="@{/css/home.css}"
 	href="../static/css/home.css">
+
 </head>
 
 <body th:classappend="${session.isDarkmode} ? 'mode-dark'">
-	
-	<script>
-		function myFunction(){
-			var zipcode  = $('input[name="zipcode"]').val();
-			if(zipcode.length != "7"){
-				alert("郵便番号が正しくありません");
-			}
-		}
-		
-	</script>
+
 	<!-- 共通ヘッダ -->
-	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-success">
 		<h1>
 			<a class="navbar-brand title-font" th:href="@{/}">WebPortal.com</a>
 		</h1>
@@ -74,50 +66,15 @@
 
 	<!-- コンテンツ -->
 	<div class="container">
-		<div class="row">
-
-			<div class="col-sm-6">
-				<div class="content-box">
-					<h2>住所検索 - 郵便番号</h2>
-					<form method="post" th:action="@{/zip}">
-						<div class="input-group">
-							<input type="number" class="form-control" name="zipcode" placeholder="郵便番号 : XXXXXXX"> 
-								<span class="input-group-btn">
-								<button type="submit" class="btn btn-primary" onclick="myFunction()">検索</button>
-							</span>
-						</div>
-					</form>
-				</div>
-			</div>
-			<div class="col-sm-6">	
-				<div class="content-box">
-					<h2>札幌の天気予報</h2>
-					<form method="post" th:action="@{/weather}">
-						<button type="submit" id="wather" class="btn btn-primary">もっと詳しく</button>
-					</form>
-				</div>
-			</div>
-			<div class="col-sm-6">	
-				<div class="content-box">
-					<h2>直近のタスク</h2>
-					<form method="get" th:action="@{/task/tasklist}">
-						<button type="submit" id="task" class="btn btn-primary">タスク管理へ</button>
-					</form>
-				</div>
-			</div>
-			<div class="col-sm-6">
-				<div class="content-box">
-					<h2>飲食店検索-北海道</h2>
-					<form method="get" th:action="@{/gourmet}">
-						<div class="input-group">
-							<input type="text" class="form-control" name="shopname" placeholder="キーワード:xxxxx"> 
-								<span class="input-group-btn">
-								<button type="submit" class="btn btn-primary">検索</button>
-							</span>
-						</div>
-					</form>
-				</div>
-			</div>
+		<div class="content-box">
+			<h2>北海道グルメ</h2>
+			<h2>「ラーメン」の検索結果</h2>
+			<hr>
+			<ul th:each="shoplist : ${shopEntity.shoplist}">
+				<img class= "shopimage" th:src="${shoplist.logo_image}">
+				<hr>
+				<a th:href="${shoplist.url}" target="new"><span th:text="${shoplist.name}"></span></a>	
+			</ul>
 		</div>
 	</div>
 
