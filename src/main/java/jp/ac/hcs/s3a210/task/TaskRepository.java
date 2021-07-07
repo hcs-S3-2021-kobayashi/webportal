@@ -70,10 +70,14 @@ public class TaskRepository {
 	 * 
 	 */
 	public int insertOne(TaskData data) throws DataAccessException{
-		int rowNumber = jdbc.update(SQL_INSERT_ONE,
-									data.getUser_id(),
-									data.getComment(),
-									data.getLimitday());
+		int rowNumber = 0;
+		if(data.getLimitday()==null) {
+		}else {
+			rowNumber = jdbc.update(SQL_INSERT_ONE,
+					data.getUser_id(),
+					data.getComment(),
+					data.getLimitday());
+		}
 		return rowNumber;
 	}
 	

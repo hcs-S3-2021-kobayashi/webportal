@@ -30,6 +30,9 @@ public class ShopData {
 	/** 最寄り駅 */
 	private String access;
 	
+	/** googlemap */
+	private String googlemap;
+	
 	/** URL */
 	private String url;
 	

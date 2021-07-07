@@ -1,4 +1,4 @@
-package jp.ac.hcs.s3a210.zipcode;
+package jp.ac.hcs.s3a210;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

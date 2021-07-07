@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowCallbackHandler;
 
-import jp.ac.hcs.s3a210.zipcode.WebConfig;
+import jp.ac.hcs.s3a210.WebConfig;
 
 /**
  * SQLで取得した結果をCSVファイルとしてサーバに保存する.

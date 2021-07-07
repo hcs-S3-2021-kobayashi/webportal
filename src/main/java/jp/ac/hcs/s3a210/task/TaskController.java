@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import jp.ac.hcs.s3a210.zipcode.WebConfig;
+import jp.ac.hcs.s3a210.WebConfig;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -46,15 +46,15 @@ public class TaskController{
 	}
 	
 	@PostMapping("/task/insert")
-	public String insert(@RequestParam(name = "comment", required = false) String comment, @RequestParam("limitday") String limitday,
+	public String insert(@RequestParam(name = "comment", required = false) String comment, @RequestParam(name = "limitday", required = false) String limitday,
 						 Principal principal, Model model) {
 		
 		log.info("[" + principal.getName() + "]タスク追加:" + "コメント:" + comment + "期限日:" + limitday);
 		boolean isSuccess = taskService.insert(principal.getName(), comment, limitday);
-		if(isSuccess) {
-			log.info("成功");
+		if (isSuccess) {
+			model.addAttribute("message", "成功");
 		}else {
-			log.info("失敗");
+			model.addAttribute("message", "失敗");
 		}
 		
 		return getTaskList(principal, model);
@@ -71,9 +71,9 @@ public class TaskController{
 	public String deleteTask(@PathVariable("id") int id, Principal principal, Model model) {
 		boolean isSuccess = taskService.delete(id);
 		if (isSuccess) {
-			model.addAttribute("message", "正常に削除されました");
+			model.addAttribute("deletemessage", "成功");
 		}else {
-			model.addAttribute("errorMessage", "削除できませんでした。再度操作をやり直してください");
+			model.addAttribute("deletemessage", "失敗");
 		}
 		return getTaskList(principal, model);
 	}

@@ -50,18 +50,15 @@ public class TaskService {
 	 * @return 1件以上であればtrue, それ以外はfalse
 	 */
 	public boolean insert(String user_id, String comment, String limitday){
-			System.out.println(comment);
-			if(comment.isEmpty() || limitday.isEmpty() || comment.length() > 50) {
-				System.out.println(limitday.getClass().getSimpleName());
-				return false;
+			int count = 0;
+			if(comment.isEmpty() || comment==null || comment.length() > 50 || limitday==null) {
 			}else{
-				System.out.println(limitday);
 				//TaskData方へ詰め替える
 				TaskData taskData = refillToData(user_id, comment, limitday);
 				//登録件数を取得する
-				int count = taskRepository.insertOne(taskData);
-				return count > 0;
+				count = taskRepository.insertOne(taskData);
 			}
+			return count > 0;
 	}
 	
 	/**

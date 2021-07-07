@@ -68,13 +68,30 @@
 	<div class="container">
 		<div class="content-box">
 			<h2>北海道グルメ</h2>
-			<h2>「ラーメン」の検索結果</h2>
-			<hr>
-			<ul th:each="shoplist : ${shopEntity.shoplist}">
-				<img class= "shopimage" th:src="${shoplist.logo_image}">
+			<script>
+			// URLを取得
+			var url = new URL(window.location.href);
+			// URLSearchParamsオブジェクトを取得
+			var params = url.searchParams;
+			// getメソッド
+			shopname = params.get('shopname');
+			//表示
+			document.write('<h2>「'+shopname+'」の検索結果</h2>');
+			</script>
+			<table th:each="shoplist : ${shopEntity.shoplist}" class="table table-borderless">
+				<tr>
+					<th>店名</th><th><span th:text="${shoplist.name}"></span></th>
+				<tr>	
+					<th>イメージ</th><th><img class= "shopimage" th:src="${shoplist.image}"></th>
+				</tr>
+				<tr>
+					<th>アクセス</th><th><span th:text="${shoplist.access}"></span></th>
+				</tr>
+				<tr>
+					<th>場所</th><th><a th:href="${shoplist.googlemap}" target="new"><span th:text="${shoplist.address}"></span></th>
+				</tr>	
 				<hr>
-				<a th:href="${shoplist.url}" target="new"><span th:text="${shoplist.name}"></span></a>	
-			</ul>
+			</table>
 		</div>
 	</div>
 

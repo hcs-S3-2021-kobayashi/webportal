@@ -27,7 +27,8 @@ public class GourmetService {
 	/** グルメサーチAPI リクエストURL */
 	private static final String URL =
 	"http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key={API_KEY}&name={shopname}&large_service_area={large_service_area}&format=json";
-	
+	private static final String MAP = 
+	"https://www.google.com/maps/search/?api=1&query=";
 	/**
 	 * 指定した郵便番号に紐つく郵便番号情報を取得する
 	 * zipcode 郵便番号(7桁、ハイフン無し)
@@ -59,6 +60,7 @@ public class GourmetService {
 				shopData.setAccess(shop.get("access").asText());
 				shopData.setUrl(shop.get("urls").get("pc").asText());
 				shopData.setImage(shop.get("photo").get("mobile").get("l").asText());
+				shopData.setGooglemap(MAP+shop.get("address").asText());
 				
 				//DataクラスをEntityの配列に追加
 				shopEntity.getShoplist().add(shopData);

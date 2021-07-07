@@ -25,7 +25,6 @@ public class GourmetController {
 				
 				String API_KEY = "4178dbdbdde5c690"; 
 				String large_service_area = "SS40";
-				System.out.println(shopname);
 				ShopEntity shopEntity = gourmetService.getShops(API_KEY,shopname,large_service_area);
 				model.addAttribute("shopEntity", shopEntity);
 				return "gourmet/gourmet";
