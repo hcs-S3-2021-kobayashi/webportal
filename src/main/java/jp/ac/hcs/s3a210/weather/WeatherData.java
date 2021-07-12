@@ -11,7 +11,6 @@ import lombok.Data;
 
 @Data
 public class WeatherData {
-	
 	/** 日付 */
 	private String dateLabel;
 	

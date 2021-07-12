@@ -34,7 +34,6 @@ public class WeatherService {
 	 */
 	public WeatherEntity getWeather(String cityCode) {
 		
-		
 		//APIにアクセスして、結果を取得 
 		String json = restTemplate.getForObject(URL, String.class, cityCode);
 		

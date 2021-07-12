@@ -45,6 +45,14 @@ public class TaskController{
 		return "task/task";
 	}
 	
+	/**
+	 * タスクを追加する
+	 * @param principal ログイン情報
+	 * @param model
+	 * @return タスクリスト
+	 * @author KobayashiDaisuke
+	 *
+	 */
 	@PostMapping("/task/insert")
 	public String insert(@RequestParam(name = "comment", required = false) String comment, @RequestParam(name = "limitday", required = false) String limitday,
 						 Principal principal, Model model) {
@@ -65,8 +73,8 @@ public class TaskController{
 	 * @param id タスクID
 	 * @param principal ログイン情報
 	 * @param model
-	 * @return
-	 */
+	 * @return タスクリスト
+	 **/
 	@GetMapping("/task/delete/{id}")
 	public String deleteTask(@PathVariable("id") int id, Principal principal, Model model) {
 		boolean isSuccess = taskService.delete(id);

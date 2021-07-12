@@ -91,9 +91,31 @@
 			</div>
 			<div class="col-sm-6">	
 				<div class="content-box">
-					<h2>札幌の天気予報</h2>
+					<h2>北海道の天気予報</h2>
 					<form method="post" th:action="@{/weather}">
-						<button type="submit" id="wather" class="btn btn-primary">もっと詳しく</button>
+						<div class="input-group">
+						 <select class="form-control" name="weather" > 
+							<option value=016010,札幌>札幌</option>
+							<option value=016020,岩見沢>岩見沢</option>
+							<option value=016030,倶知安>倶知安</option>
+							<option value=017010,函館>函館</option>
+							<option value=017020,江差>江差</option>
+							<option value=015010,室蘭>室蘭</option>
+							<option value=015020,浦河>浦河</option>
+							<option value=013010,網走>網走</option>
+							<option value=013020,北見>北見</option>
+							<option value=013030,紋別>紋別</option>
+							<option value=014010,根室>根室</option>
+							<option value=014020,釧路>釧路</option>
+							<option value=014030,帯広>帯広</option>
+							<option value=011000,稚内>稚内</option>
+							<option value=012010,旭川>旭川</option>
+							<option value=012020,留萌>留萌</option>
+						</select>
+						<span class="input-group-btn">
+							<button type="submit" class="btn btn-primary" >検索</button>
+						</span>
+					  </div>
 					</form>
 				</div>
 			</div>
@@ -116,6 +138,7 @@
 							</span>
 						</div>
 					</form>
+					<h7>Powered by<a href="https://www.hotpepper.jp/SA41/">ホットペッパーグルメ</a></h7>
 				</div>
 			</div>
 			<div class="col-sm-6" role="presentation"

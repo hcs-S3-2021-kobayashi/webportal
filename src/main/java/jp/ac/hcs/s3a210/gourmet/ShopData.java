@@ -2,9 +2,7 @@ package jp.ac.hcs.s3a210.gourmet;
 
 import lombok.Data;
 /**
- * 1件分の天気情報
- * 各項目のデータ使用について、APIの使用を参照する
- * -https://weather.tsukumijima.net/
+ * 1件分の店舗情報
  * @author KobayashiDaisuke
  *
  */

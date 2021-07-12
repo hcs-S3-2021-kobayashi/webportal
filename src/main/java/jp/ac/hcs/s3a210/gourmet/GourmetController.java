@@ -14,8 +14,8 @@ public class GourmetController {
 	private GourmetService gourmetService;
 	
 	/**
-	 * 郵便番号から住所を検索し、結果画面を表示する
-	 * @param zipcode 検索する郵便番号（ハイフン無し）
+	 * キーワードを検索し、該当する店舗を表示する
+	 * @param shopname 検索するキーワード
 	 * @param principal ログイン情報
 	 * @param model
 	 * @return 結果画面-郵便番号

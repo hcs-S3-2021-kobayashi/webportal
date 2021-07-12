@@ -6,9 +6,10 @@ import java.util.List;
 import lombok.Data;
 
 /**
- * 天気予報検索結果の天気情報
- * 各項目のデータ使用については、APIの使用を参照する
- * htpps;//weather.tsukumijima.net/
+ * 店舗情報検索結果の店舗情報
+ * 各項目のデータ使用については、APIの使用を参照とする。
+ * 1つのキーワードに複数の住所が紐つく事もある為、リスト構造となっている
+ * -http://webservice.recruit.co.jp/hotpepper/
  * @author KobayashiDaisuke
  *
  */
